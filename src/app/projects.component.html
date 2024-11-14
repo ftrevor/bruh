@@ -1,0 +1,118 @@
+<div id="dashboard">
+    <a routerLink="/test-route"></a>
+    <input type="file" id="input" (change)="onFileChangeDefects($event)" (change)="onFileChangeRFAs($event)" (change)="onFileChangeReports($event)" (change)="onFileChangePSRs($event)"/>
+
+    <button (click)="exportAllAsExcel()">Export As Excel Sheet</button>
+
+    <!-- <button (click)="exportDefectsToExcel()">Export Defects</button> -->
+    <!-- <button (click)="exportRFAsToExcel()">Export RFAs</button> -->
+    <!-- <button (click)="exportReportsToExcel()">Export Reports</button> -->
+    <!-- <button (click)="exportPSRsToExcel()">Export PSRs</button> -->
+
+    <!-- bottom section -->
+
+    <div class="container">
+        <div class="row p-2">
+            <div class="col pr-2" id="module" *ngIf="excelData.length">
+                <a href="#" routerLink="/devopssummary" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="me-3"></i><span id="table-top">DevOps Defects</span>
+                </a>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr id="table-header">
+                            <td>Pending GDIT Action</td>
+                            <td>Pending DOS/DOH Action</td>
+                            <td>Resolution in Progress</td>
+                            <td>Completed (Fixed/InTest/Passed)</td>
+                            <td>Closed Fixed</td>
+                            <td>Closed Not a Defect</td>
+                        </tr>
+                        <tr>
+                            <td><button routerLink="/devopspendingGDIT">{{ defectscondensedPendingGDIT.length }}</button>
+                            </td>
+                            <td><button routerLink="/devopspendingDOS">{{ defectscondensedPendingDOS.length }}</button></td>
+                            <td><button routerLink="/devopsresolution">{{ defectscondensedResolutionInProgress.length }}</button>
+                            </td>
+                            <td><button routerLink="/devopsdefectscompleted">{{ defectscondensedComplete.length }}</button></td>
+                            <td><button routerLink="/devopsclosedfixed">{{ defectscondensedClosedFixed.length }}</button></td>
+                            <td><button routerLink="/devopsclosednotadefect">{{ defectscondensedClosedNotADefect.length }}</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col pr-2" id="module" *ngIf="excelData.length">
+                <a href="#" routerLink="/rfasummary" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="me-3"></i><span id="table-top">RFAs</span>
+                </a>
+                <table class="table table-bordered" *ngIf="excelData.length">
+                    <tbody>
+                        <tr>
+                            <td>Pending GDIT Action</td>
+                            <td>Pending DOS Action</td>
+                            <td>Pending DOH Verification</td>
+                        </tr>
+                        <tr>
+                            <td><button routerLink="/rfapendingGDIT">{{ condensedPendingGDIT.length }}</button></td>
+                            <td><button routerLink="/rfapendingdos">{{ condensedPendingDOS.length }}</button></td>
+                            <td><button routerLink="/rfapendingdohverification">{{ condensedPendingDOHVerification.length }}</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="col pr-2" id="module" *ngIf="excelData.length">
+                <a href="#" routerLink="/reportssummary" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="me-3"></i><span id="table-top">Reports</span>
+                </a>
+                <table class="table table-bordered" *ngIf="excelData.length">
+                    <tbody>
+                        <tr>
+                            <td>Pending GDIT Action</td>
+                            <td>Pending DOS Review</td>
+                            <td>Completed (Verified - Awaiting DC)</td>
+                            <td>Completed (Automated Report)</td>
+                            <td>Completed (Closed)</td>
+                        </tr>
+                        <tr>
+                            <td><button routerLink="/reportspendingGDIT">{{ reportsCondensedPendingGDIT.length }}</button></td>
+                            <td><button routerLink="/reportspendingdos">{{ reportsCondensedPendingDOH.length }}</button></td>
+                            <td><button routerLink="/reportsawaitingverification">{{ reportsCondensedCompletedAwaitingDC.length }}</button></td>
+                            <td><button routerLink="/reportsautomated">{{ reportsCondensedCompletedAutomatedReports.length }}</button></td>
+                            <td><button routerLink="/reportscompleted">{{ reportsCondensedCompleted.length }}</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        
+        <div class="row p-2">
+            <div class="col pr-2" id="module" *ngIf="PSRData.length">
+                <a href="#" routerLink="/psrsummary" class="list-group-item list-group-item-action py-2 ripple">
+                    <i class="me-3"></i><span  id="table-top">PSRs</span>
+                </a>
+                <table class="table table-bordered" *ngIf="excelData.length">
+                    <tbody>
+                        <tr>
+                            <td>Pending GDIT Action</td>
+                            <td>Pending Requester Verification</td>
+                            <td>Closed</td>
+                            <td>Closed Pending Requester Verification</td>
+
+                        </tr>
+                        <tr>
+                            <td><button routerLink="/psrpendingGDIT">{{ this.PSRPendingGDITAction.length }}</button></td>
+                            <td><button routerLink="/psrpendingverification">{{ this.PSRPendingRequesterVerification.length }}</button></td>
+                            <td><button routerLink="/psrclosed">{{ this.PSRClosed.length }}</button></td>
+                            <td><button routerLink="/psrclosedpendingverification">{{ this.PSRClosedPendingRequesterVerification.length }}</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

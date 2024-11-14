@@ -1,0 +1,89 @@
+<div class="container">
+    <div class="row p-2" id="box">
+        <button routerLink="/devopssummary" class="col" id="tab-selector">
+            DevOps Defects
+        </button>
+        <button routerLink="/rfasummary" class="col" id="not-selector">
+            RFAs Summary
+        </button>
+        <button routerLink="/reportssummary" class="col" id="not-selector">
+            Reports Summary
+        </button>
+        <button routerLink="/psrsummary" class="col-3" id="not-selector">
+            PSRs Summary
+        </button>
+    </div>
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="MyChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row p-2" id="box">
+        <button  routerLink="/devopspendingGDIT" class="col" id="not-selector">
+            <p>Pending GDIT Action</p>
+        </button>
+        <button routerLink="/devopspendingDOS" class="col" id="tab-selector">
+            Pending DOS/DOH Action
+        </button>
+        <button routerLink="/devopsresolution" class="col" id="not-selector">
+            Resolution in Progress
+        </button>
+        <button routerLink="/devopsdefectscompleted" class="col" id="not-selector">
+            Completed
+        </button>
+        <button routerLink="/devopsclosedfixed" class="col" id="not-selector">
+            Closed Fixed
+        </button>
+        <button routerLink="/devopsclosednotadefect" class="col" id="not-selector">
+            Closed Not a Defect
+        </button>
+    </div>
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="severityChart">{{ sevChart }}</canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="age-chart">{{ ageChart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module" *ngIf="displayData.length">
+            <div class="table-responsive m-4">
+                <table class="table table-bordered table-fixed" *ngIf="displayData.length">
+                    <tbody>
+                        <tr id="tableHeader">
+                            <td>ID</td>
+                            <td>Summary</td>
+                            <td>Severity</td>
+                            <td>Priority</td>
+                            <td>Total Age</td>
+                            <td>Status</td>
+                            <td>Planned For</td>
+                            <td>DOH Systems Owner</td>
+                            <td>Owner</td>
+                            <td>Requestor</td>
+                        </tr>
+                        <tr *ngFor="let row of displayData">
+                            <td *ngFor="let cell of row">{{ cell }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

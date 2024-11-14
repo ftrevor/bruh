@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="row p-2" id="box">
+        <button routerLink="/devopssummary" class="col" id="not-selector">
+            DevOps Defects
+        </button>
+        <button routerLink="/rfasummary" class="col" id="not-selector">
+            RFAs Summary
+        </button>
+        <button routerLink="/reportssummary" class="col" id="not-selector">
+            Reports Summary
+        </button>
+        <button routerLink="/psrsummary" class="col-3" id="tab-selector">
+            PSRs Summary
+        </button>
+    </div>
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="MyChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-2" id="box">
+        <button routerLink="/psrpendingGDIT" class="col" id="tab-selector">
+            <p>Pending GDIT Action</p>
+        </button>
+        <button routerLink="/psrpendingverification" class="col" id="not-selector">
+            Pending Requester Verification
+        </button>
+        <button routerLink="/psrclosed" class="col" id="not-selector">
+            Closed
+        </button>
+        <button routerLink="/psrclosedpendingverification" class="col" id="not-selector">
+            Closed Pending Requester Verification
+        </button>
+    </div>
+
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="severityChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col pr-2" id="module">
+            <p class="mt-5" id="days-heading">Average Total Days</p>
+            <p id="days-number">{{ totalDaysAverage }}</p>
+        </div> -->
+    </div>
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module" *ngIf="displayData.length">
+            <div class="table-responsive m-4">
+                <table class="table table-bordered table-fixed" *ngIf="displayData.length">
+                    <tbody>
+                        <tr id="tableHeader">
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Severity</td>
+                            <td>Priority</td>
+                            <td>Related To</td>
+                            <td>Billing CR</td>
+                            <td>Days</td>
+                            <td>Planned For</td>
+                            <td>DOH Systems Owner</td>
+                            <td>Owner</td>
+                            <td>PSR Requestor</td>
+                        </tr>
+                        <tr *ngFor="let row of displayData">
+                            <td *ngFor="let cell of row">{{ cell }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

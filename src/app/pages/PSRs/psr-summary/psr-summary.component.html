@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row p-2" id="box">
+        <button routerLink="/devopssummary" class="col" id="not-selector">
+            DevOps Defects
+        </button>
+        <button routerLink="/rfasummary" class="col" id="not-selector">
+            RFAs Summary
+        </button>
+        <button routerLink="/reportssummary" class="col" id="not-selector">
+            Reports Summary
+        </button>
+        <button routerLink="/psrsummary" class="col-3" id="tab-selector">
+            PSRs Summary
+        </button>
+    </div>
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="MyChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-2" id="box">
+        <button  routerLink="/psrpendingGDIT" class="col" id="not-selector">
+            <p>Pending GDIT Action</p>
+        </button>
+        <button routerLink="/psrpendingverification" class="col" id="not-selector">
+            Pending Requester Verification
+        </button>
+        <button routerLink="/psrpendingverification" class="col" id="not-selector">
+            Closed
+        </button>
+        <button routerLink="/psrpendingverification" class="col" id="not-selector">
+            Closed Pending Requester Verification
+        </button>
+    </div>
+</div>

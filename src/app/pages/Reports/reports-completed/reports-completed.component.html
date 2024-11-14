@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row p-2" id="box">
+        <button routerLink="/devopssummary" class="col" id="not-selector">
+            DevOps Defects
+        </button>
+        <button routerLink="/rfasummary" class="col" id="not-selector">
+            RFAs Summary
+        </button>
+        <button routerLink="/reportssummary" class="col" id="tab-selector">
+            Reports Summary
+        </button>
+        <button routerLink="/psrsummary" class="col-3" id="not-selector">
+            PSRs Summary
+        </button>
+    </div>
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="MyChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-2" id="box">
+        <button routerLink="/reportspendingGDIT" class="col" id="not-selector">
+            Pending GDIT Action
+        </button>
+        <button routerLink="/reportspendingdos" class="col" id="not-selector">
+            Pending DOS Review
+        </button>
+        <button routerLink="/reportsawaitingverification" class="col" id="not-selector">
+            Completed (Verified - Awaiting DC)
+        </button>
+        <button routerLink="/reportsautomated" class="col" id="not-selector">
+            Completed (Automated Report)
+        </button>
+        <button routerLink="/reportscompleted" class="col" id="tab-selector">
+            Completed (Closed)
+        </button>
+    </div>
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="severityChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col pr-2" id="module">
+            <p class="mt-5" id="days-heading">Average Total Days</p>
+            <p id="days-number">{{ totalDaysAverage }}</p>
+        </div> -->
+    </div>
+
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module" *ngIf="displayData.length">
+            <div class="table-responsive m-4">
+                <table class="table table-bordered table-fixed" *ngIf="displayData.length">
+                    <tbody>
+                        <tr id="tableHeader">
+                            <td>ID</td>
+                            <td>Name</td>
+                            <td>Severity</td>
+                            <td>Priority</td>
+                            <td>Related To</td>
+                            <td>Billable CR</td>
+                            <td>Report Frequency</td>
+                            <td>DOHRR Report Delivered Count</td>
+                            <td>Days</td>
+                            <td>DOH Systems Owner</td>
+                            <td>Owner</td>
+                        </tr>
+                        <tr *ngFor="let row of displayData">
+                            <td *ngFor="let cell of row">{{ cell }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

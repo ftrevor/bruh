@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row p-2" id="box">
+        <button routerLink="/devopssummary" class="col" id="not-selector">
+            DevOps Defects
+        </button>
+        <button routerLink="/rfasummary" class="col" id="not-selector">
+            RFAs Summary
+        </button>
+        <button routerLink="/reportssummary" class="col" id="tab-selector">
+            Reports Summary
+        </button>
+        <button routerLink="/psrsummary" class="col-3" id="not-selector">
+            PSRs Summary
+        </button>
+    </div>
+    <div class="row p-2" id="box">
+        <div class="col pr-2" id="module">
+            <div id="bar-graph">
+                <div class="chart-container">
+                    <canvas id="MyChart">{{ chart }}</canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row p-2" id="box">
+        <button routerLink="/reportspendingGDIT" class="col" id="not-selector">
+            Pending GDIT Action
+        </button>
+        <button routerLink="/reportspendingdos" class="col" id="not-selector">
+            Pending DOS Review
+        </button>
+        <button routerLink="/reportsawaitingverification" class="col" id="not-selector">
+            Completed (Verified - Awaiting DC)
+        </button>
+        <button routerLink="/reportsautomated" class="col" id="not-selector">
+            Completed (Automated Report)
+        </button>
+        <button routerLink="/reportscompleted" class="col" id="not-selector">
+            Completed (Closed)
+        </button>
+    </div>
+</div>
